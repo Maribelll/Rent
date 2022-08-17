@@ -41,6 +41,9 @@ h2 {
   line-height: 84px;
   letter-spacing: 0em;
   text-align: center;
+  color: #555a68;
+  text-align: left;
+  margin: 0;
 }
 .header_h1 {
   font-family: $font-family--h1h2h3;
@@ -58,7 +61,7 @@ h4 {
   letter-spacing: 0em;
   text-align: center;
 }
-.label p {
+.label {
   //styleName: Paragraph;
   font-family: $font-family;
   font-size: 16px;
@@ -66,6 +69,7 @@ h4 {
   line-height: 26px;
   letter-spacing: 0em;
   text-align: left;
+  color: $blue;
 }
 p {
   font-family: $font-family;
@@ -74,9 +78,51 @@ p {
   line-height: 26px;
   letter-spacing: 0em;
 }
+.button_transparent {
+  font-family: $font-family;
+  height: 50px;
+  width: 159px;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px;
+  border: 2px solid rgba(104, 136, 105, 1);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: transparent;
+  &:hover {
+    border-color: $green;
+  }
+}
+.button_blue {
+  font-family: $font-family;
+  height: 50px;
+  width: 159px;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px;
+  background: rgba(97, 116, 186, 1);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  &:hover {
+    background-color: $dark_blue;
+  }
+}
+.container {
+  max-width: 1280px;
+  margin: 53px auto 32px auto;
+  padding: 47px 0 47px 0;
+  background-color: $pearl;
+}
 html,
 body {
   margin: 0;
+  min-width: 375px;
 }
 body {
   .background {
@@ -122,7 +168,54 @@ body {
       }
     }
   }
-
+  .container {
+    .rent_item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 1062px;
+      margin: 0 auto;
+      align-items: center;
+      #left_item {
+        flex-direction: row-reverse;
+      }
+      .rent_text {
+        max-width: 360px;
+        .paragraph {
+          padding-bottom: 15px;
+        }
+      }
+      .rent_img {
+        img {
+          width: 600px;
+        }
+      }
+    }
+  }
+  .container {
+    .rent_item_reverse {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      max-width: 1062px;
+      margin: 0 auto;
+      align-items: center;
+      #left_item {
+        flex-direction: row-reverse;
+      }
+      .rent_text {
+        max-width: 360px;
+        .paragraph {
+          padding-bottom: 15px;
+        }
+      }
+      .rent_img {
+        img {
+          width: 600px;
+        }
+      }
+    }
+  }
   @media screen and (max-width: 1435px) {
     .background {
       background-size: cover;
