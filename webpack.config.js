@@ -15,6 +15,7 @@ module.exports = {
   output: {
     filename: "main.bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "",
     // assetModuleFilename: "images/[name][ext]",
   },
   module: {
@@ -25,12 +26,12 @@ module.exports = {
       },
       //Loading images
       {
-        test: /\.jpe?g$|\.gif$|\.png|\.ico|\.svg$/,
+        test: /\.(?:|jpg|gif|png|ico|svg|jpeg)$/,
         use: [
           {
             loader: "file-loader",
             options: {
-              publicPath: "images",
+              name: "images/[filename].[ext]",
             },
           },
         ],
