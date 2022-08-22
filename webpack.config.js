@@ -14,6 +14,7 @@ module.exports = {
   output: {
     filename: "main.bundle.js",
     path: path.resolve(__dirname, "dist"),
+    // assetModuleFilename: "images/[name][ext]",
   },
   module: {
     rules: [
@@ -24,7 +25,14 @@ module.exports = {
       //Loading images
       {
         test: /\.jpe?g$|\.gif$|\.png|\.ico|\.svg$/,
-        use: ["file-loader"],
+        type: "asset/resource",
+        generator: {
+          filename: "images/[contenthash][ext][query]",
+        },
+      },
+      {
+        test: /\.(ttf|eot|woff2?)$/i,
+        type: "asset/resource",
       },
     ],
   },
