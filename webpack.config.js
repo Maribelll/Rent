@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -25,15 +26,19 @@ module.exports = {
       //Loading images
       {
         test: /\.jpe?g$|\.gif$|\.png|\.ico|\.svg$/,
-        type: "asset/resource",
-        generator: {
-          filename: "images/[contenthash][ext][query]",
-        },
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              publicPath: "images",
+            },
+          },
+        ],
       },
-      {
-        test: /\.(ttf|eot|woff2?)$/i,
-        type: "asset/resource",
-      },
+      // {
+      //   test: /\.(ttf|eot|woff2?)$/i,
+      //   type: "asset/resource",
+      // },
     ],
   },
   plugins: [
@@ -49,5 +54,12 @@ module.exports = {
       template: "./land.html",
     }),
     new CleanWebpackPlugin(),
+
+    new CopyPlugin({
+      patterns: [
+        path.resolve(__dirname, "images"),
+        // path.resolve(__dirname, "images"),
+      ],
+    }),
   ],
 };
