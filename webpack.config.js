@@ -30,9 +30,9 @@ module.exports = {
         use: [
           {
             loader: "file-loader",
-            options: {
-              name: "images/[filename].[ext]",
-            },
+            // options: {
+            //   name: "images/[filename].[ext]",
+            // },
           },
         ],
       },
@@ -46,6 +46,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "style.css",
     }),
+
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./index.html",

@@ -27,7 +27,18 @@ $screen-xl: 1280px;
 
 $container-width: 100%;
 $container-slider: 1346px;
-
+a {
+  text-decoration: none;
+  color: $black;
+  transition: ease 1s;
+  &:hover {
+    color: $green;
+    transition: ease 1s;
+  }
+  &:active {
+    color: $green;
+  }
+}
 h1 {
   font-family: $font-family--h1h2h3;
   font-size: 60px;
@@ -67,7 +78,7 @@ h4 {
   //styleName: Paragraph;
   font-family: $font-family;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 26px;
   letter-spacing: 0em;
   text-align: left;
